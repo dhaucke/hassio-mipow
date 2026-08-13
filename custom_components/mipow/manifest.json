@@ -17,5 +17,5 @@
   "issue_tracker": "https://github.com/dhaucke/hassio-mipow/issues",
   "loggers": ["mipow"],
   "requirements": ["bleak_retry_connector>=3.0.0"],
-  "version": "2026.8.3"
+  "version": "2026.8.4"
 }

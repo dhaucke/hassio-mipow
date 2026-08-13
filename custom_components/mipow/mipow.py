@@ -166,14 +166,13 @@ class MiPow:
                 else:
                     await self._enable_timer()
 
-            if self._battery_characteristic:
-                if (
-                    powerStateChanged
-                    or reconnected
-                    or is_on
-                    or self._update_counter % 10 == 0
-                ):
-                    await self._fetch_battery_level()
+            if self._battery_characteristic and (
+                powerStateChanged
+                or reconnected
+                or is_on
+                or self._update_counter % 10 == 0
+            ):
+                await self._fetch_battery_level()
             self._update_counter += 1
             self._fire_callbacks()
 
