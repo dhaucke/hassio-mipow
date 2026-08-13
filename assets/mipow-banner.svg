@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400" role="img" aria-label="MiPow Integration for Home Assistant">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5A623"/>
+      <stop offset="100%" stop-color="#8A3B0E"/>
+    </linearGradient>
+    <pattern id="stripes" width="42" height="42" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <rect width="42" height="42" fill="transparent"/>
+      <rect width="10" height="42" fill="#ffffff" opacity="0.05"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="400" fill="url(#bg)"/>
+  <rect width="1200" height="400" fill="url(#stripes)"/>
+
+  <text x="70" y="185" font-family="Helvetica, Arial, sans-serif" font-size="104" font-weight="700" fill="#ffffff">MiPow</text>
+  <text x="74" y="228" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="400" fill="#ffffff" opacity="0.92">für Home Assistant</text>
+  <text x="74" y="266" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#ffffff" opacity="0.8">Bluetooth-LED-Kerzen &#183; Farbe &#183; Effekte &#183; Timer</text>
+
+  <rect x="70" y="294" width="460" height="2" fill="#ffffff" opacity="0.25"/>
+
+  <!-- flame -->
+  <g transform="translate(920,110)">
+    <circle cx="0" cy="0" r="56" fill="#ffffff" opacity="0.10"/>
+    <path d="M0,-34 C14,-16 20,-2 20,10 C20,26 11,38 0,38 C-11,38 -20,26 -20,10 C-20,0 -15,-10 -8,-18 C-6,-8 0,-4 0,-10 C0,-18 -4,-26 0,-34 Z" fill="#ffffff" opacity="0.92"/>
+  </g>
+
+  <!-- bluetooth -->
+  <g transform="translate(1050,110)">
+    <circle cx="0" cy="0" r="56" fill="#ffffff" opacity="0.10"/>
+    <path d="M-14,-28 L14,-8 L0,0 L14,8 L-14,28 L-14,4 L-4,0 L-14,-4 Z" fill="none" stroke="#ffffff" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" opacity="0.92"/>
+  </g>
+
+  <!-- color wheel -->
+  <g transform="translate(985,255)">
+    <circle cx="0" cy="0" r="56" fill="#ffffff" opacity="0.10"/>
+    <circle cx="0" cy="0" r="34" fill="none" stroke="#ffffff" stroke-width="6" opacity="0.92"/>
+    <circle cx="0" cy="0" r="12" fill="#ffffff" opacity="0.85"/>
+  </g>
+</svg>

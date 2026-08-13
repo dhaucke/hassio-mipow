@@ -1,17 +1,19 @@
+import asyncio
 import logging
+
+import voluptuous as vol
 from bleak.backends.device import BLEDevice
-from homeassistant.config_entries import ConfigFlow
+from bleak.exc import BleakError
 from homeassistant.components.bluetooth import (
     BluetoothServiceInfoBleak,
     async_discovered_service_info,
 )
-from homeassistant.data_entry_flow import FlowResult
+from homeassistant.config_entries import ConfigFlow
 from homeassistant.const import CONF_ADDRESS
-import voluptuous as vol
+from homeassistant.data_entry_flow import FlowResult
+
 from .component import MIPOW_DOMAIN
 from .mipow import MiPow
-from bleak.exc import BleakError
-import asyncio
 
 _LOGGER = logging.getLogger(__name__)
 BLEAK_EXCEPTIONS = (AttributeError, BleakError, asyncio.exceptions.TimeoutError)

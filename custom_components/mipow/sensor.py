@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import logging
+
 from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorEntity,
@@ -13,9 +15,8 @@ from homeassistant.helpers.update_coordinator import (
     CoordinatorEntity,
     DataUpdateCoordinator,
 )
-import logging
 
-from .component import MIPOW_DOMAIN, map_to_device_info, MiPowData
+from .component import MIPOW_DOMAIN, MiPowData, map_to_device_info
 from .mipow import MiPow
 
 _LOGGER = logging.getLogger(__name__)

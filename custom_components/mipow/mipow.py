@@ -12,17 +12,18 @@
 # This code is released under the terms of the MIT license.
 #
 from __future__ import annotations
+
 import asyncio
+import logging
+from collections.abc import Callable
+from dataclasses import dataclass, replace
+
 from bleak.backends.device import BLEDevice
 from bleak.backends.service import BleakGATTCharacteristic, BleakGATTServiceCollection
 from bleak_retry_connector import (
     BleakClientWithServiceCache,
     establish_connection,
 )
-from collections.abc import Callable
-from dataclasses import dataclass
-from dataclasses import replace
-import logging
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -50,7 +51,7 @@ class MiPowDeviceInfo:
 
 
 class MiPow:
-    def __init__(self, device: BLEDevice) -> None:
+    def __init__(self, device: BLEDevice, initial_rssi: int | None = None) -> None:
         self._state: State = State()
         self._device: BLEDevice = device
         self._services: BleakGATTServiceCollection | None = None
@@ -73,6 +74,7 @@ class MiPow:
         self._timer_set: bool | None = None
         self._reconnect: bool = False
         self._update_counter: int = 0
+        self._rssi: int | None = initial_rssi
 
     @property
     def address(self) -> str:
@@ -84,7 +86,7 @@ class MiPow:
 
     @property
     def rssi(self) -> str:
-        return self._device.rssi
+        return str(self._rssi) if self._rssi is not None else "N/A"
 
     @property
     def is_on(self) -> bool:
@@ -251,8 +253,8 @@ class MiPow:
         else:
             try:
                 await self._fetch_battery_level()
-            except:
-                _LOGGER.warn("This device does not support battery status check.")
+            except Exception:
+                _LOGGER.warning("This device does not support battery status check.")
                 self._battery_characteristic = None
 
         deviceInfo.battery_powered = not self._battery_characteristic is None
@@ -300,7 +302,7 @@ class MiPow:
         if self._expected_disconnect:
             _LOGGER.debug(msg, *arg)
         else:
-            _LOGGER.warn(msg, *arg)
+            _LOGGER.warning(msg, *arg)
             self._reconnect = True
 
     def _reset_disconnect_timer(self) -> None:

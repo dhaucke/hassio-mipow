@@ -1,20 +1,20 @@
-from homeassistant.components.number import NumberEntityDescription
-from homeassistant.config_entries import ConfigEntry
-from homeassistant.core import HomeAssistant
-from homeassistant.const import TIME_MINUTES
-from homeassistant.helpers.entity import EntityCategory
-from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from homeassistant.components.number import RestoreNumber
 import logging
 
+from homeassistant.components.number import NumberEntityDescription, RestoreNumber
+from homeassistant.config_entries import ConfigEntry
+from homeassistant.const import UnitOfTime
+from homeassistant.core import HomeAssistant
+from homeassistant.helpers.entity import EntityCategory
+from homeassistant.helpers.entity_platform import AddEntitiesCallback
+
 from .component import (
-    MIPOW_DOMAIN,
     ATTR_DELAY,
-    ATTR_REPETITIONS,
     ATTR_PAUSE,
+    ATTR_REPETITIONS,
     ATTR_TIMER,
-    map_to_device_info,
+    MIPOW_DOMAIN,
     MiPowData,
+    map_to_device_info,
 )
 from .mipow import MiPow
 
@@ -134,7 +134,7 @@ class MiPowTimeOffEntity(MiPowNumber):
             native_step=1,
             native_min_value=0,
             native_max_value=24 * 60 - 1,
-            native_unit_of_measurement=TIME_MINUTES,
+            native_unit_of_measurement=UnitOfTime.MINUTES,
         )
         self._attr_native_value = 0
 
