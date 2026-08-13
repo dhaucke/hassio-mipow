@@ -1,15 +1,6 @@
 {
   "domain": "mipow",
   "name": "MiPow",
-  "config_flow": true,
-  "dependencies": ["bluetooth"],
-  "requirements": ["bleak_retry_connector>=3.0.0"],
-  "codeowners": ["@dhaucke"],
-  "documentation": "https://github.com/dhaucke/hassio-mipow",
-  "issue_tracker": "https://github.com/dhaucke/hassio-mipow/issues",
-  "version": "2026.8.1",
-  "iot_class": "local_polling",
-  "loggers": ["mipow"],
   "bluetooth": [
     {
       "local_name": "PLAYBULB*"
@@ -17,5 +8,14 @@
     {
       "local_name": "MIPOW*"
     }
-  ]
+  ],
+  "codeowners": ["@dhaucke"],
+  "config_flow": true,
+  "dependencies": ["bluetooth"],
+  "documentation": "https://github.com/dhaucke/hassio-mipow",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/dhaucke/hassio-mipow/issues",
+  "loggers": ["mipow"],
+  "requirements": ["bleak_retry_connector>=3.0.0"],
+  "version": "2026.8.2"
 }
