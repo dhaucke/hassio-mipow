@@ -1,4 +1,4 @@
-![MiPow Integration für Home Assistant](https://raw.githubusercontent.com/dhaucke/hassio-mipow/main/assets/mipow-banner.svg)
+![MiPow Integration für Home Assistant](https://raw.githubusercontent.com/dhaucke/hassio-mipow/main/assets/mipow-banner.png)
 
 # MiPow
 
